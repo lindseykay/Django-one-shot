@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en>">
+    <head>
+        <title>To Do Lists</title>
+    </head>
+    <body>
+        <main>
+            <div><h1>My Lists</h1></div>
+            <div>
+                <table>
+                    <thead>
+                        <th>Name</th>
+                        <th>Number of items</th>
+                    </thead>
+                    <tbody>
+                        {% for list in todolist_list %}
+                        <tr> <td>{{list.name}} </td> </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </body>
+</html>
