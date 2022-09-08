@@ -38,3 +38,11 @@ class TodoListDeleteView(DeleteView):
     model = TodoList
     template_name = "todo_lists/delete.html"
     success_url = reverse_lazy("todo_list_list")
+
+class TodoItemCreateView(CreateView):
+    model = TodoItem
+    template_name = "todo_items/new.html"
+    fields = ["task", "due_date", "is_completed", "list"]
+
+    def get_success_url(self) -> str:
+        return reverse_lazy("todo_list_detail", args=[self.object.list.id])
