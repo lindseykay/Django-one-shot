@@ -14,7 +14,14 @@
                     </thead>
                     <tbody>
                         {% for list in todolist_list %}
-                        <tr> <td>{{list.name}} </td> </tr>
+                        <tr>
+                            <td>
+                                <a href="{% url "todo_list_detail" list.pk %}">{{list.name}}</a>
+                            </td>
+                            <td>
+                                {{ list.items.all|length }}
+                            </td>
+                        </tr>
                         {% endfor %}
                     </tbody>
                 </table>
